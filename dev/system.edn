@@ -1,19 +1,17 @@
-{:vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
-          :init-ns      net.wikipunk.temple.init
-          :ns-prefix    "net.wikipunk.rdf."
-          :boot         [net.wikipunk.framebase.boot/framebase]
-          :config       {:xtdb/index-store
-                         {:kv-store
-                          {:xtdb/module xtdb.lmdb/->kv-store
-                           :db-dir      ".vocab/index"}}
-                         :xtdb/document-store
-                         {:kv-store
-                          {:xtdb/module xtdb.lmdb/->kv-store
-                           :db-dir      ".vocab/document"}}
-                         :xtdb/tx-log
-                         {:kv-store
-                          {:xtdb/module xtdb.lmdb/->kv-store
-                           :db-dir      ".vocab/tx-log"}}
-                         :xtdb.lucene/lucene-store
-                         {:db-dir ".vocab/lucene"}}}
- :openai {:sc/create-fn net.wikipunk.openai/map->Client}}
+{:vocab   {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
+           :init-ns      net.wikipunk.temple.init
+           :config       {:xtdb.lucene/lucene-store
+                          {:db-dir ".vocab/lucene"}}}
+ :openai  {:sc/create-fn net.wikipunk.openai/map->Client}
+ :client  {:sc/create-fn datomic.client.api/client
+           :server-type  :dev-local
+           :system       "framebase"}
+ :fbframe {:sc/create-fn net.wikipunk.datomic/map->Connection
+           :sc/refs      [:client]
+           :db-name      "fbframe"}
+ :fbfe    {:sc/create-fn net.wikipunk.datomic/map->Connection
+           :sc/refs      [:client]
+           :db-name      "fbfe"}
+ :fbdbp   {:sc/create-fn net.wikipunk.datomic/map->Connection
+           :sc/refs      [:client]
+           :db-name      "fbdbp"}}

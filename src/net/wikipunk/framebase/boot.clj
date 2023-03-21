@@ -37,3 +37,6 @@
    :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://framebase.org/lexicon/en/"
    :rdfa/prefix      "fblexicon"})
+
+(def wn30
+  {:dcat/downloadURL "https://www.framebase.org/files/data/dump/schema/FrameBase_schema_wordnet_30_links.ttl.gz"})
