@@ -28,7 +28,7 @@
    [net.wikipunk.temple :as temple]
    [zprint.core :as zprint]
    [net.wikipunk.framebase.boot :as boot]
-   [net.wikipunk.rdf.framebase])
+   [xtdb.api :as xt])
   (:refer-clojure :exclude [isa? descendants parents ancestors]))
 
 (set-init
