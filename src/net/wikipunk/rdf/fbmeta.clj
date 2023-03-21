@@ -1,7 +1,7 @@
 (ns net.wikipunk.rdf.fbmeta
   "http://framebase.org/meta/"
   {:rdf/ns-prefix-map {"fbmeta" "http://framebase.org/meta/"},
-   :rdf/type          :rdfa/PrefixMapping,
+   :rdf/type          :owl/Ontology,
    :rdfa/prefix       "fbmeta",
    :rdfa/uri          "http://framebase.org/meta/"})
 

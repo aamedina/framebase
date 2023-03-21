@@ -27,6 +27,7 @@
    [net.wikipunk.openai :as openai]
    [net.wikipunk.rdf :as rdf :refer [doc]]
    [net.wikipunk.temple :as temple]
+   [net.wikipunk.punk.db :as db]
    [zprint.core :as zprint]
    [net.wikipunk.framebase.boot :as boot]
    [net.wikipunk.framebase :as fb]
