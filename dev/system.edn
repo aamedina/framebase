@@ -14,4 +14,6 @@
            :db-name      "fbfe"}
  :fbdbp   {:sc/create-fn net.wikipunk.datomic/map->Connection
            :sc/refs      [:client]
-           :db-name      "fbdbp"}}
+           :db-name      "fbdbp"}
+ :fb      {:sc/create-fn net.wikipunk.framebase/map->FrameBase
+           :sc/refs      [:fbframe :fbfe :fbdbp]}}

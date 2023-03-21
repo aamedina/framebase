@@ -16,6 +16,7 @@
    [clojure.set :as set]
    [clojure.string :as str]
    [clojure.tools.namespace.repl :refer [refresh refresh-all clear]]
+   [datomic.client.api :as d]
    [com.stuartsierra.component :as com]
    [com.stuartsierra.component.repl :refer [reset set-init start stop system]]
    [com.walmartlabs.schematic :as sc]
@@ -28,6 +29,7 @@
    [net.wikipunk.temple :as temple]
    [zprint.core :as zprint]
    [net.wikipunk.framebase.boot :as boot]
+   [net.wikipunk.framebase :as fb]
    [xtdb.api :as xt])
   (:refer-clojure :exclude [isa? descendants parents ancestors]))
 
