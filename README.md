@@ -25,6 +25,87 @@ clojure -A:dev
 (reset)
 ```
 
+``` clojure
+;; Example Frame
+(def Synset00023271.cognition.noun
+  "the psychological result of perception and learning and reasoning"
+  {:db/ident :fbframe/Synset00023271.cognition.noun,
+   :fbmeta/hasDefinition
+   {:rdf/language "en",
+    :rdf/value
+    "the psychological result of perception and learning and reasoning"},
+   :fbmeta/hasLexicalForm [{:rdf/language "en",
+                            :rdf/value    "noesis"}
+                           {:rdf/language "en",
+                            :rdf/value    "cognition"}
+                           {:rdf/language "en",
+                            :rdf/value    "knowledge"}],
+   :fbmeta/hasSynsetNumber 23271,
+   :fbmeta/inheritsFrom :fbframe/Top_frame,
+   :rdf/type [:fbmeta/Microframe
+              :fbmeta/SynsetMicroframe
+              :fbmeta/Miniframe
+              :fbmeta/Macroframe
+              :rdfs/Class
+              :fbmeta/Frame
+              :rdfs/Resource],
+   :rdfs/comment
+   {:rdf/language "en",
+    :rdf/value
+    "the psychological result of perception and learning and reasoning"},
+   :rdfs/label [{:rdf/language "en",
+                 :rdf/value    "cognition"}
+                {:rdf/language "en",
+                 :rdf/value    "knowledge"}
+                {:rdf/language "en",
+                 :rdf/value    "noesis"}],
+   :rdfs/subClassOf
+   [:fbframe/Synset00023271.cognition.noun :rdfs/Resource :fbframe/Top_frame]})
+```
+
+``` clojure
+;; Example Frame element property
+(def Cognitive_connection.has_concepts
+  "The two concepts expressed jointly."
+  {:db/ident :fbfe/Cognitive_connection.has_concepts,
+   :fbmeta/hasDefinition {:rdf/language "en",
+                          :rdf/value    "The two concepts expressed jointly."},
+   :fbmeta/hasFramenetFE {:rdf/language "en",
+                          :rdf/value    "Concepts"},
+   :fbmeta/hasFramenetFrame {:rdf/language "en",
+                             :rdf/value    "Cognitive_connection"},
+   :fbmeta/hasLexicalForm {:rdf/language "en",
+                           :rdf/value    "Concepts"},
+   :rdf/type [:fbfe/Top_frame.has_element :rdf/Property :rdfs/Resource],
+   :rdfs/comment {:rdf/language "en",
+                  :rdf/value    "The two concepts expressed jointly."},
+   :rdfs/domain :fbframe/Cognitive_connection,
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "Concepts"},
+   :rdfs/subPropertyOf [:fbfe/Cognitive_connection.has_concepts
+                        :fbfe/Top_frame.has_concepts]})
+```
+
+``` clojure
+;; Example direct binary predicate property
+(def Awareness.gainsCognitionAboutTopic
+  "gains/VBZ cognition/NN about/IN (NP Topic)"
+  {:db/ident :fbdbp/Awareness.gainsCognitionAboutTopic,
+   :fbmeta/hasLexicalForm {:rdf/language "en",
+                           :rdf/value    "gains cognition about topic"},
+   :fbmeta/hasSyntacticallyAnnotatedLexicalLabel
+   "gains/VBZ cognition/NN about/IN (NP Topic)",
+   :fbmeta/hasTraces
+   "[<<prep0>>, <<N dobj-1 V>>, <<agent-verb-particle-NOUN-pp>>]",
+   :fbmeta/isCreatedFromNumberOfFramenetAnnotatedSentences "2.04",
+   :fbmeta/isExtendedRule true,
+   :fbmeta/isOriginalRule false,
+   :rdf/type [:rdfs/Resource :fbmeta/DirectBinaryPredicateClass :rdf/Property],
+   :rdfs/comment "gains/VBZ cognition/NN about/IN (NP Topic)",
+   :rdfs/label {:rdf/language "en",
+                :rdf/value    "gains cognition about topic"}})
+```
+
 ## License
 Copyright (c) 2023 Adrian Medina
 
