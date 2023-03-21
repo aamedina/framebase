@@ -1,7 +1,21 @@
 # net.wikipunk/framebase
-A new RDF vocabulary for wikipunk.net
+FrameBase is a linked open knowledge base meant to uniformly
+represent a wide range of knowledge, tackling semantic heterogeneity
+among various sources of structured knowledge, such as the ones in
+the Linked Open Data cloud. It provides a flexible and uniform way of
+capturing n-ary relationships by adapting and combining repositories
+of frames from the fields of linguistics and cognitive science
+(FrameNet and WordNet) to establish a large and wide-coverage
+vocabulary that can be used to represent complex knowledge and
+extended with more specific elements. In other words: if you can
+express it with language, you can express it with FrameBase —barring
+some very specific concepts that need to be coined or imported from
+domain-specific KBs. 
 
-## Usage
+## :rdfs/seeAlso
+* https://www.framebase.org/about
+
+## :dev
 
 ``` shell
 clojure -A:dev
