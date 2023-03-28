@@ -219,7 +219,7 @@
   ""
   {:db/ident       :fbmeta/isCreatedFromNumberOfFramenetAnnotatedSentences,
    :db/cardinality :db.cardinality/many
-   :db/valueType   :db.type/long
+   :db/valueType   :db.type/string
    :rdf/type       :fbmeta/MetaPropertyClass,
    :rdfs/comment   {:rdf/language "en",
                     :rdf/value    ""},
