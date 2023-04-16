@@ -1,19 +1,22 @@
-{:vocab   {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
-           :init-ns      net.wikipunk.temple.init
-           :config       {:xtdb.lucene/lucene-store
-                          {:db-dir ".vocab/lucene"}}}
- :openai  {:sc/create-fn net.wikipunk.openai/map->Client}
- :client  {:sc/create-fn datomic.client.api/client
-           :server-type  :dev-local
-           :system       "framebase"}
- :fbframe {:sc/create-fn net.wikipunk.datomic/map->Connection
-           :sc/refs      [:client]
-           :db-name      "fbframe"}
- :fbfe    {:sc/create-fn net.wikipunk.datomic/map->Connection
-           :sc/refs      [:client]
-           :db-name      "fbfe"}
- :fbdbp   {:sc/create-fn net.wikipunk.datomic/map->Connection
-           :sc/refs      [:client]
-           :db-name      "fbdbp"}
- :fb      {:sc/create-fn net.wikipunk.framebase/map->FrameBase
-           :sc/refs      [:fbframe :fbfe :fbdbp]}}
+{:vocab     {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
+             :init-ns      net.wikipunk.temple.init
+             :config       {:xtdb.lucene/lucene-store
+                            {:db-dir ".vocab/lucene"}}}
+ :openai    {:sc/create-fn net.wikipunk.openai/map->Client}
+ :client    {:sc/create-fn datomic.client.api/client
+             :server-type  :dev-local
+             :system       "framebase"}
+ :fbframe   {:sc/create-fn net.wikipunk.datomic/map->Connection
+             :sc/refs      [:client]
+             :db-name      "fbframe"}
+ :fbfe      {:sc/create-fn net.wikipunk.datomic/map->Connection
+             :sc/refs      [:client]
+             :db-name      "fbfe"}
+ :fbdbp     {:sc/create-fn net.wikipunk.datomic/map->Connection
+             :sc/refs      [:client]
+             :db-name      "fbdbp"}
+ :framebase {:sc/create-fn net.wikipunk.datomic/map->Connection
+             :sc/refs      [:client]
+             :db-name      "framebase"}
+ :fb        {:sc/create-fn net.wikipunk.framebase/map->FrameBase
+             :sc/refs      [:fbframe :fbfe :fbdbp]}}

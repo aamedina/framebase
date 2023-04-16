@@ -2,14 +2,16 @@
  {org.clojure/clojure
   {:mvn/version "1.11.1"}
   io.github.aamedina/rdf
-  {:git/sha "2fc9e858889cfb67fdd5cef8866a45105439a4c8"}
+  {:git/sha "958f8436d94bd852ac069303567870fc558017d8"}
   io.github.aamedina/punk.db
-  {:git/sha "6113141e8741299a354e0f53e74c679159f8e6d6"}}
+  {:git/sha "8bb696ecdd2cf12b2a495b64397159c8939911cf"}}
  :paths ["src" "classes" "resources"]
  :aliases
  {:dev
   {:extra-deps
-   {com.walmartlabs/schematic
+   {com.datomic/dev-local
+    {:mvn/version "1.0.243"}
+    com.walmartlabs/schematic
     {:mvn/version "1.3.0"}
     com.stuartsierra/component.repl
     {:mvn/version "0.2.0"}    
