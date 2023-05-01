@@ -2,10 +2,10 @@
  {org.clojure/clojure
   {:mvn/version "1.11.1"}
   io.github.aamedina/rdf
-  {:git/sha "958f8436d94bd852ac069303567870fc558017d8"}
+  {:git/sha "88ef6ee027de57865410f2c462f58861ad99fb3f"}
   io.github.aamedina/punk.db
-  {:git/sha "8bb696ecdd2cf12b2a495b64397159c8939911cf"}}
- :paths ["src" "classes" "resources"]
+  {:git/sha "964d02e2791d7a0c3bb78b704d19df6da78029fa"}}
+ :paths ["src/clj" "src/cljc" "classes" "resources"]
  :aliases
  {:dev
   {:extra-deps
