@@ -1,11 +1,6 @@
 (ns net.wikipunk.framebase.boot
   {:rdf/type :jsonld/Context})
 
-(def framebase
-  {:rdf/type    :rdfa/PrefixMapping
-   :rdfa/uri    "https://wikipunk.net/framebase/"
-   :rdfa/prefix "framebase"})
-
 (def fbframe
   {:dcat/downloadURL "https://www.framebase.org/files/data/dump/schema/FrameBase_schema_core.ttl.gz"
    :rdf/type         :rdfa/PrefixMapping
@@ -30,11 +25,11 @@
    :rdfa/uri         "http://framebase.org/dbp/"
    :rdfa/prefix      "fbdbp"})
 
-(def fblexicon
+#_(def fblexicon
   {:dcat/downloadURL "https://www.framebase.org/files/data/dump/schema/FrameBase_schema_lemon_annotations.ttl.gz"
    :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://framebase.org/lexicon/en/"
    :rdfa/prefix      "fblexicon"})
 
-(def wn30
+#_(def wn30
   {:dcat/downloadURL "https://www.framebase.org/files/data/dump/schema/FrameBase_schema_wordnet_30_links.ttl.gz"})

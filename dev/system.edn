@@ -1,21 +1,13 @@
 {:vocab     {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
-             :boot         [:fb]
+             :sc/refs      [:fb]
+             :boot         [net.wikipunk.framebase.boot]
              :config       {:xtdb.lucene/lucene-store
                             {:db-dir ".vocab/lucene"}}}
  :client    {:sc/create-fn datomic.client.api/client
              :server-type  :dev-local
              :system       "framebase"}
- :fbframe   {:sc/create-fn net.wikipunk.datomic/map->Connection
-             :sc/refs      [:client]
-             :db-name      "fbframe"}
- :fbfe      {:sc/create-fn net.wikipunk.datomic/map->Connection
-             :sc/refs      [:client]
-             :db-name      "fbfe"}
- :fbdbp     {:sc/create-fn net.wikipunk.datomic/map->Connection
-             :sc/refs      [:client]
-             :db-name      "fbdbp"}
  :framebase {:sc/create-fn net.wikipunk.datomic/map->Connection
              :sc/refs      [:client]
              :db-name      "framebase"}
  :fb        {:sc/create-fn net.wikipunk.framebase/map->FrameBase
-             :sc/refs      [:fbframe :fbfe :fbdbp]}}
+             :sc/refs      [:framebase]}}
