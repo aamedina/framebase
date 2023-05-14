@@ -8,8 +8,8 @@
    [net.wikipunk.rdf.owl]
    [net.wikipunk.rdf.xsd]
    [net.wikipunk.rdf.fbmeta]
-   [net.wikipunk.rdf.fbframe]
-   [net.wikipunk.rdf.fbfe]))
+   #_[net.wikipunk.rdf.fbframe]
+   #_[net.wikipunk.rdf.fbfe]))
 
 (defrecord FrameBase [framebase]
   com/Lifecycle
@@ -17,3 +17,4 @@
     this)
   (stop [this]
     this))
+
