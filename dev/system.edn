@@ -8,16 +8,16 @@
                             :xtdb/document-store
                             {:kv-store
                              {:xtdb/module xtdb.rocksdb/->kv-store
-                              :db-dir ".vocab/document-store"}}
+                              :db-dir      ".vocab/document-store"}}
                             :xtdb/tx-log
                             {:kv-store
                              {:xtdb/module xtdb.rocksdb/->kv-store
-                              :db-dir ".vocab/tx-log"}}
+                              :db-dir      ".vocab/tx-log"}}
                             :xtdb.lucene/lucene-store
                             {:db-dir ".vocab/lucene"}}}
  :client    {:sc/create-fn datomic.client.api/client
              :server-type  :dev-local
-             :system       "framebase"}
+             :system       "dev"}
  :framebase {:sc/create-fn net.wikipunk.datomic/map->Connection
              :sc/refs      [:client]
              :db-name      "framebase"}
