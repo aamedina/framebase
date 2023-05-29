@@ -5,7 +5,6 @@ resources/net/wikipunk/rdf/fbfe.cljc filter=lfs diff=lfs merge=lfs -text
 resources/net/wikipunk/rdf/fbframe.cljc filter=lfs diff=lfs merge=lfs -text
 resources/net/wikipunk/rdf/fbwn30.cljc filter=lfs diff=lfs merge=lfs -text
 resources/net/wikipunk/rdf/fbdbp.cljc filter=lfs diff=lfs merge=lfs -text
-src/cljc/net/wikipunk/rdf/fbmeta.cljc filter=lfs diff=lfs merge=lfs -text
 src/cljc/net/wikipunk/rdf/fbdbp.cljc filter=lfs diff=lfs merge=lfs -text
 src/cljc/net/wikipunk/rdf/fbframe.cljc filter=lfs diff=lfs merge=lfs -text
 src/cljc/net/wikipunk/rdf/fbfe.cljc filter=lfs diff=lfs merge=lfs -text
