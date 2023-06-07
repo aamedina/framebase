@@ -1,0 +1,178 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@prefix db: <https://wikipunk.net/db/> .
+@prefix db.cardinality: <https://wikipunk.net/db/cardinality/> .
+@prefix db.type: <https://wikipunk.net/db/type/> .
+@prefix db.unique: <https://wikipunk.net/db/unique/> .
+@prefix fbmeta: <http://framebase.org/meta/> .
+@prefix fbframe: <http://framebase.org/frame/> .
+@prefix fbfe: <http://framebase.org/fbfe/> .
+@prefix fbdbp: <http://framebase.org/fbdbp/> .
+
+fbmeta: a owl:Ontology ;
+  rdfs:comment "This ontology describes the meta-model of FrameBase."@en ;
+  rdfs:label "FrameBase Meta Ontology"@en .
+
+fbmeta:hasFramenetFrame a rdf:Property ;
+  db:cardinality db.cardinality:one ;
+  db:valueType db.type:string ;
+  db:fulltext true ;
+  rdfs:comment "This property links a FrameBase frame to a FrameNet frame."@en ;
+  rdfs:label "hasFramenetFrame"@en ;
+  rdfs:range xsd:string .
+
+fbmeta:hasLexicalForm a rdf:Property ;
+  db:cardinality db.cardinality:one ;
+  db:valueType db.type:string ;
+  db:fulltext true ;
+  rdfs:comment "This property links a FrameBase lexical unit to its lexical form."@en ;
+  rdfs:label "hasLexicalForm"@en ;
+  rdfs:range xsd:string .
+
+fbmeta:MetaClassClass a owl:Class ;
+  rdfs:comment "Class of all FrameBase meta-classes."@en ;
+  rdfs:label "MetaClassClass"@en .
+
+fbmeta:hasFramenetLU a rdf:Property ;
+  db:cardinality db.cardinality:one ;
+  db:valueType db.type:string ;
+  db:fulltext true ;
+  rdfs:comment "This property links a FrameBase frame to a FrameNet lexical unit."@en ;
+  rdfs:label "hasFramenetLU"@en ;
+  rdfs:range xsd:string .
+
+fbmeta:isOriginalRule a rdf:Property ;
+  db:cardinality db.cardinality:one ;
+  db:valueType db.type:boolean ;
+  rdfs:comment "This property indicates whether a rule is original or not."@en ;
+  rdfs:label "isOriginalRule"@en ;
+  rdfs:range xsd:boolean .
+
+fbmeta:isSimilarTo a rdf:Property ;
+  db:cardinality db.cardinality:many ;
+  db:valueType db.type:ref ;
+  rdfs:comment "This property connects microframes from a given cluster of near-synonyms."@en ;
+  rdfs:domain fbmeta:Microframe ;
+  rdfs:label "isSimilarTo"@en ;
+  rdfs:range fbmeta:Microframe .
+
+fbmeta:hasDefinition a rdf:Property ;
+  db:cardinality db.cardinality:one ;
+  db:valueType db.type:string ;
+  rdfs:comment "This property links a FrameBase frame to its definition."@en ;
+  rdfs:label "hasDefinition"@en ;
+  rdfs:subPropertyOf rdfs:comment .
+
+fbmeta:inheritsFrom a rdf:Property ;
+  db:cardinality db.cardinality:many ;
+  db:valueType db.type:ref ;
+  rdfs:comment "This property links a FrameBase frame to its parent frame."@en ;
+  rdfs:label "inheritsFrom"@en ;
+  rdfs:subPropertyOf rdfs:subClassOf .
+
+fbframe:Top_frame a rdfs:Class ;
+  rdfs:comment "The most general frame. All frames in FrameBase are subframes of this."@en ;
+  rdfs:label "Top_frame"@en .
+
+fbmeta:hasTraces a rdf:Property ;
+  db:cardinality db.cardinality:one ;
+  db:valueType db.type:string ;
+  db:fulltext true ;
+  rdfs:range rdfs:Literal ;
+  rdfs:label "hasTraces"@en .
+
+fbmeta:hasFramenetFE a rdf:Property ;
+  db:cardinality db.cardinality:one ;
+  db:valueType db.type:string ;
+  db:fulltext true ;
+  rdfs:range rdfs:Literal ;
+  rdfs:label "hasFramenetFE"@en .
+
+fbmeta:MetaPropertyClass a rdfs:Class ;
+  rdfs:subClassOf fbmeta:MetaClassClass ;
+  rdfs:comment "Class of all FrameBase meta-properties."@en ;
+  rdfs:label "MetaPropertyClass"@en .
+
+fbmeta:hasSynsetNumber a rdfs:Property ;
+  db:cardinality db.cardinality:one ;
+  db:valueType db.type:long ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf fbmeta:hasSynsetNumber ;
+  rdfs:comment "This property links a FrameBase frame to its synset number."@en ;
+  rdfs:label "hasSynsetNumber"@en .
+
+fbmeta:LuMicroframe a rdfs:Class ;
+  rdfs:subClassOf fbmeta:Microframe ;
+  rdfs:subClassOf fbmeta:MetaClassClass ;
+  rdfs:comment "Class of all microframes extracted from FrameNet's Lexical Units."@en .
+
+fbmeta:DirectBinaryPredicateClass a rdfs:Class ;
+  rdfs:subClassOf rdf:Property ;
+  rdfs:subClassOf fbmeta:MetaClassClass ;
+  rdfs:comment "Class of all Direct Binary Predicates."@en ;
+  rdfs:label "DirectBinaryPredicateClass"@en .
+
+fbmeta:isExtendedRule a rdfs:Property ;
+  db:cardinality db.cardinality:one ;
+  db:valueType db.type:boolean ;
+  rdfs:range xsd:boolean ;
+  rdfs:comment "Has been created extending synonyms."@en ;
+  rdfs:label "isExtendedRule"@en .
+
+fbmeta:Miniframe a rdfs:Class ;
+  rdfs:subClassOf fbmeta:Macroframe ;
+  rdfs:comment "Class of all miniframes, grouping microframes that belong to a same clique of :similarTo"@en ;
+  rdfs:label "Miniframe"@en .
+
+fbfe:Top_frame.has_element a rdf:Property ;
+  rdfs:comment "The most general frame element property."@en ;
+  rdfs:label "Element"@en .
+
+fbmeta:Frame a rdfs:Class ;
+    rdfs:comment "Class of all frames: macroframes, miniframes and microframes."@en ;
+    rdfs:label "Frame"@en .
+
+fbmeta:Macroframe a rdfs:Class ;
+  rdfs:comment "Class of all macroframes. They have very general broad meanings."@en ;
+  rdfs:label "Macroframe"@en .
+
+fbmeta:isPerspectiveOf a rdf:Property ;
+    db:cardinality db.cardinality:many ;
+    db:valueType db.type:ref ;
+    rdfs:comment "This property connects a frame to another that is a perspective of it."@en ;
+    rdfs:label "isPerspectiveOf"@en ;
+    rdfs:subPropertyOf rdfs:subClassOf .
+
+fbmeta:SynsetMicroframe a rdfs:Class ;
+  rdfs:comment "Class of all microframes extracted from WordNet's Synsets."@en ;
+  rdfs:label "SynsetMicroframe"@en ;
+  rdfs:subClassOf fbmeta:Microframe .
+
+fbmeta:FrameElementPropertyClass a rdfs:Class ;
+  rdfs:comment "Class of all Frame Element properties."@en ;
+  rdfs:label "FrameElementPropertyClass"@en ;
+  rdfs:subClassOf rdf:Property .
+
+fbmeta:hasSyntacticallyAnnotatedLexicalLabel a rdf:Property ;
+  db:cardinality db.cardinality:one ;
+  db:valueType db.type:string ;
+  db:fulltext true ;
+  rdfs:comment "Annotation of part-of-speech and some phrase structure, using Penn notation"@en ;
+  rdfs:label "hasSyntacticallyAnnotatedLexicalLabel"@en ;
+  rdfs:subPropertyOf rdfs:comment .
+
+fbmeta:Microframe a rdfs:Class ;
+  rdfs:comment "Class of all microframes. Very specific meanings."@en ;
+  rdfs:label "Microframe"@en ;
+  rdfs:subClassOf fbmeta:Miniframe .
+
+fbmeta:isCreatedFromNumberOfFramenetAnnotatedSentences a rdf:Property ;
+  db:cardinality db.cardinality:one ;
+  db:valueType db.type:string ;
+  rdfs:comment "Number of sentences annotated in FrameNet that were used to create this frame."@en ;
+  rdfs:label "isCreatedFromNumberOfFramenetAnnotatedSentences"@en ;
+  rdfs:range xsd:integer .

@@ -2,25 +2,25 @@
   {:rdf/type :jsonld/Context})
 
 (def fbframe
-  {:dcat/downloadURL "https://www.framebase.org/files/data/dump/schema/FrameBase_schema_core.ttl.gz"
+  {:dcat/downloadURL "resources/FrameBase_schema_core.ttl"
    :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://framebase.org/frame/"
    :rdfa/prefix      "fbframe"})
 
 (def fbfe
-  {:dcat/downloadURL "https://www.framebase.org/files/data/dump/schema/FrameBase_schema_core.ttl.gz"
+  {:dcat/downloadURL "resources/FrameBase_schema_core.ttl"
    :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://framebase.org/fe/"
    :rdfa/prefix      "fbfe"})
 
 (def fbmeta
-  {:dcat/downloadURL "https://www.framebase.org/files/data/dump/schema/FrameBase_metaschema.ttl.gz"
+  {:dcat/downloadURL "resources/FrameBase_metaschema.ttl"
    :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://framebase.org/meta/"
    :rdfa/prefix      "fbmeta"})
 
 (def fbdbp
-  {:dcat/downloadURL "https://www.framebase.org/files/data/dump/schema/FrameBase_schema_dbps.ttl.gz"
+  {:dcat/downloadURL "resources/FrameBase_schema_dbps.ttl"
    :rdf/type         :rdfa/PrefixMapping
    :rdfa/uri         "http://framebase.org/dbp/"
    :rdfa/prefix      "fbdbp"})

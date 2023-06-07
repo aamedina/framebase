@@ -8,3 +8,9 @@ resources/net/wikipunk/rdf/fbdbp.cljc filter=lfs diff=lfs merge=lfs -text
 src/cljc/net/wikipunk/rdf/fbdbp.cljc filter=lfs diff=lfs merge=lfs -text
 src/cljc/net/wikipunk/rdf/fbframe.cljc filter=lfs diff=lfs merge=lfs -text
 src/cljc/net/wikipunk/rdf/fbfe.cljc filter=lfs diff=lfs merge=lfs -text
+resources/FrameBase_schema_core.ttl filter=lfs diff=lfs merge=lfs -text
+resources/FrameBase_schema_dbps.ttl filter=lfs diff=lfs merge=lfs -text
+resources/FrameBase_schema_dbps_lemon.ttl filter=lfs diff=lfs merge=lfs -text
+resources/FrameBase_schema_lemon_annotations.ttl filter=lfs diff=lfs merge=lfs -text
+resources/FrameBase_schema_lexvo_links.ttl filter=lfs diff=lfs merge=lfs -text
+resources/FrameBase_schema_wordnet_30_links.ttl filter=lfs diff=lfs merge=lfs -text

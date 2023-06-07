@@ -1,8 +1,8 @@
 {:deps
  {io.github.aamedina/rdf
-  {:git/sha "6bd44097fefa6bb2bc7f0228eb78bb5c12961acb"}
+  {:git/sha "70fc064919bc73d114a7b3e53851741bf1e6f64d"}
   io.github.aamedina/punk.db
-  {:git/sha "8f7637db6412f05ed2f6fc4d231e6b46b5e5d1a5"}
+  {:git/sha "c9ff901d309f90e055cc2bcb66478f1baf9ffbb4"}
   com.xtdb/xtdb-rocksdb
   {:mvn/version "1.23.2"}}
  :paths ["src/clj" "src/cljc" "classes" "resources"]
