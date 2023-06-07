@@ -57,8 +57,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :fbmeta/MetaClassClass
                      :fbmeta/Microframe
-                     :fbmeta/Macroframe
-                     :fbmeta/Miniframe]})
+                     :fbmeta/Miniframe
+                     :fbmeta/Macroframe]})
 
 (def Macroframe
   "Class of all macroframes. They have very general broad meanings."
@@ -112,11 +112,11 @@
    #voc/lstr "Class of all microframes extracted from WordNet's Synsets.@en",
    :rdfs/label #voc/lstr "SynsetMicroframe@en",
    :rdfs/subClassOf
-   [:rdfs/Resource :fbmeta/Microframe :fbmeta/Macroframe :fbmeta/Miniframe]})
+   [:rdfs/Resource :fbmeta/Microframe :fbmeta/Miniframe :fbmeta/Macroframe]})
 
 (def hasDefinition
   "This property links a FrameBase frame to its definition."
-  {:db/cardinality :db.cardinality/one,
+  {:db/cardinality :db.cardinality/many,
    :db/ident :fbmeta/hasDefinition,
    :db/valueType :db.type/string,
    :rdf/type :rdf/Property,
@@ -149,7 +149,7 @@
 
 (def hasFramenetLU
   "This property links a FrameBase frame to a FrameNet lexical unit."
-  {:db/cardinality :db.cardinality/one,
+  {:db/cardinality :db.cardinality/many,
    :db/fulltext true,
    :db/ident :fbmeta/hasFramenetLU,
    :db/valueType :db.type/string,
@@ -162,7 +162,7 @@
 
 (def hasLexicalForm
   "This property links a FrameBase lexical unit to its lexical form."
-  {:db/cardinality :db.cardinality/one,
+  {:db/cardinality :db.cardinality/many,
    :db/fulltext true,
    :db/ident :fbmeta/hasLexicalForm,
    :db/valueType :db.type/string,
@@ -174,18 +174,19 @@
    :rdfs/range :xsd/string})
 
 (def hasSynsetNumber
-  ""
+  "This property links a FrameBase frame to its synset number."
   {:db/cardinality :db.cardinality/one,
-   :db/ident       :fbmeta/hasSynsetNumber,
-   :db/valueType   :db.type/long,
-   :rdf/type       :rdfs/Property,
-   :rdfs/comment   #voc/lstr "@en",
-   :rdfs/label     #voc/lstr "hasSynsetNumber@en",
-   :rdfs/range     :xsd/integer})
+   :db/ident :fbmeta/hasSynsetNumber,
+   :db/valueType :db.type/long,
+   :rdf/type :rdfs/Property,
+   :rdfs/comment
+   #voc/lstr "This property links a FrameBase frame to its synset number.@en",
+   :rdfs/label #voc/lstr "hasSynsetNumber@en",
+   :rdfs/range :xsd/integer})
 
 (def hasSyntacticallyAnnotatedLexicalLabel
   "Annotation of part-of-speech and some phrase structure, using Penn notation"
-  {:db/cardinality :db.cardinality/one,
+  {:db/cardinality :db.cardinality/many,
    :db/fulltext true,
    :db/ident :fbmeta/hasSyntacticallyAnnotatedLexicalLabel,
    :db/valueType :db.type/string,

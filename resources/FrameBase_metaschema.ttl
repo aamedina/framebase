@@ -26,7 +26,7 @@ fbmeta:hasFramenetFrame a rdf:Property ;
   rdfs:range xsd:string .
 
 fbmeta:hasLexicalForm a rdf:Property ;
-  db:cardinality db.cardinality:one ;
+  db:cardinality db.cardinality:many ;
   db:valueType db.type:string ;
   db:fulltext true ;
   rdfs:comment "This property links a FrameBase lexical unit to its lexical form."@en ;
@@ -38,7 +38,7 @@ fbmeta:MetaClassClass a owl:Class ;
   rdfs:label "MetaClassClass"@en .
 
 fbmeta:hasFramenetLU a rdf:Property ;
-  db:cardinality db.cardinality:one ;
+  db:cardinality db.cardinality:many ;
   db:valueType db.type:string ;
   db:fulltext true ;
   rdfs:comment "This property links a FrameBase frame to a FrameNet lexical unit."@en ;
@@ -61,7 +61,7 @@ fbmeta:isSimilarTo a rdf:Property ;
   rdfs:range fbmeta:Microframe .
 
 fbmeta:hasDefinition a rdf:Property ;
-  db:cardinality db.cardinality:one ;
+  db:cardinality db.cardinality:many ;
   db:valueType db.type:string ;
   rdfs:comment "This property links a FrameBase frame to its definition."@en ;
   rdfs:label "hasDefinition"@en ;
@@ -158,7 +158,7 @@ fbmeta:FrameElementPropertyClass a rdfs:Class ;
   rdfs:subClassOf rdf:Property .
 
 fbmeta:hasSyntacticallyAnnotatedLexicalLabel a rdf:Property ;
-  db:cardinality db.cardinality:one ;
+  db:cardinality db.cardinality:many ;
   db:valueType db.type:string ;
   db:fulltext true ;
   rdfs:comment "Annotation of part-of-speech and some phrase structure, using Penn notation"@en ;
