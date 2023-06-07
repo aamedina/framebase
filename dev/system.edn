@@ -1,10 +1,10 @@
 {:vocab     {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
              :sc/refs      [:fb]
              :boot         [net.wikipunk.framebase.boot]
-             :config       {;; :xtdb/index-store
-                            ;; {:kv-store
-                            ;;  {:xtdb/module xtdb.rocksdb/->kv-store
-                            ;;   :db-dir ".vocab/index-store"}}
+             :config       {:xtdb/index-store
+                            {:kv-store
+                             {:xtdb/module xtdb.rocksdb/->kv-store
+                              :db-dir      ".vocab/index-store"}}
                             :xtdb/document-store
                             {:kv-store
                              {:xtdb/module xtdb.rocksdb/->kv-store
