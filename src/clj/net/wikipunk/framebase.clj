@@ -6,6 +6,7 @@
    [net.wikipunk.punk.db :as db]
    [net.wikipunk.rdf.fbmeta]
    [net.wikipunk.rdf.event]
+   [net.wikipunk.rdf.bibo]
    #_[net.wikipunk.rdf.fbframe] 
    #_[net.wikipunk.rdf.fbfe]))
 

@@ -76,6 +76,12 @@
   ;; their metaobjects and MOP relations with Frames
   (let [schema (db/bootstrap-attributes mop/*env* (remove #(= (namespace (:db/ident %)) "fbfe")))]
     (alter-var-root #'db/*schema* (constantly schema)))
+
+  (spit "resources/schema.edn" (with-out-str (zprint/zprint db/*schema*)))
+
+  (def schema
+    (with-open [r (java.io.PushbackReader. (io/reader (io/resource "schema.edn")))]
+      (alter-var-root #'db/*schema* (constantly (edn/read r)))))
   
   ;; Once you are ready create a boot-db.
   (def boot-db (db/test-bootstrap (:db system)))
@@ -93,4 +99,20 @@
   ;; metaobjects in the cloud. If your :db is dev-local, you will
   ;; install all of the metaobjects to a local directory on your
   ;; computer.
-  )
+
+  (doseq [part (partition-all 512 db/*schema*)]
+    (d/transact (:conn (:db system)) {:tx-data part}))
+
+  (doseq [part (partition-all 512 (db/bootstrap-idents))]
+    (d/transact (:conn (:db system)) {:tx-data part}))
+
+  (def failures
+    (reduce (fn [failures e]
+              (let [tx-data (vec e)]
+                (try
+                  (d/transact (:conn (:db system)) {:tx-data tx-data})
+                  failures
+                  (catch Throwable ex
+                    (conj failures (ex-info (.getMessage ex) {:tx-data tx-data} ex))))))
+            []
+            (partition-all 32 (db/bootstrap-individuals mop/*env*)))))
