@@ -97,7 +97,7 @@ fbmeta:MetaPropertyClass a rdfs:Class ;
   rdfs:comment "Class of all FrameBase meta-properties."@en ;
   rdfs:label "MetaPropertyClass"@en .
 
-fbmeta:hasSynsetNumber a rdfs:Property ;
+fbmeta:hasSynsetNumber a rdf:Property ;
   db:cardinality db.cardinality:one ;
   db:valueType db.type:long ;
   rdfs:range xsd:integer ;
@@ -116,7 +116,7 @@ fbmeta:DirectBinaryPredicateClass a rdfs:Class ;
   rdfs:comment "Class of all Direct Binary Predicates."@en ;
   rdfs:label "DirectBinaryPredicateClass"@en .
 
-fbmeta:isExtendedRule a rdfs:Property ;
+fbmeta:isExtendedRule a rdf:Property ;
   db:cardinality db.cardinality:one ;
   db:valueType db.type:boolean ;
   rdfs:range xsd:boolean ;

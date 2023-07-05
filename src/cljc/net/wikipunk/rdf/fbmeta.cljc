@@ -57,8 +57,8 @@
    :rdfs/subClassOf [:rdfs/Resource
                      :fbmeta/MetaClassClass
                      :fbmeta/Microframe
-                     :fbmeta/Miniframe
-                     :fbmeta/Macroframe]})
+                     :fbmeta/Macroframe
+                     :fbmeta/Miniframe]})
 
 (def Macroframe
   "Class of all macroframes. They have very general broad meanings."
@@ -112,7 +112,7 @@
    #voc/lstr "Class of all microframes extracted from WordNet's Synsets.@en",
    :rdfs/label #voc/lstr "SynsetMicroframe@en",
    :rdfs/subClassOf
-   [:rdfs/Resource :fbmeta/Microframe :fbmeta/Miniframe :fbmeta/Macroframe]})
+   [:rdfs/Resource :fbmeta/Microframe :fbmeta/Macroframe :fbmeta/Miniframe]})
 
 (def hasDefinition
   "This property links a FrameBase frame to its definition."
@@ -178,7 +178,7 @@
   {:db/cardinality :db.cardinality/one,
    :db/ident :fbmeta/hasSynsetNumber,
    :db/valueType :db.type/long,
-   :rdf/type :rdfs/Property,
+   :rdf/type :rdf/Property,
    :rdfs/comment
    #voc/lstr "This property links a FrameBase frame to its synset number.@en",
    :rdfs/label #voc/lstr "hasSynsetNumber@en",
@@ -235,7 +235,7 @@
   {:db/cardinality :db.cardinality/one,
    :db/ident       :fbmeta/isExtendedRule,
    :db/valueType   :db.type/boolean,
-   :rdf/type       :rdfs/Property,
+   :rdf/type       :rdf/Property,
    :rdfs/comment   #voc/lstr "Has been created extending synonyms.@en",
    :rdfs/label     #voc/lstr "isExtendedRule@en",
    :rdfs/range     :xsd/boolean})

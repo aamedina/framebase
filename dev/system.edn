@@ -1,25 +1,25 @@
-{:vocab     {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
-             :sc/refs      [:fb]
-             :boot         [net.wikipunk.framebase.boot]
-             :config       {:xtdb/index-store
-                            {:kv-store
-                             {:xtdb/module xtdb.rocksdb/->kv-store
-                              :db-dir      ".vocab/index-store"}}
-                            :xtdb/document-store
-                            {:kv-store
-                             {:xtdb/module xtdb.rocksdb/->kv-store
-                              :db-dir      ".vocab/document-store"}}
-                            :xtdb/tx-log
-                            {:kv-store
-                             {:xtdb/module xtdb.rocksdb/->kv-store
-                              :db-dir      ".vocab/tx-log"}}
-                            :xtdb.lucene/lucene-store
-                            {:db-dir ".vocab/lucene"}}}
- :client    {:sc/create-fn datomic.client.api/client
-             :server-type  :dev-local
-             :system       "dev"}
- :framebase {:sc/create-fn net.wikipunk.datomic/map->Connection
-             :sc/refs      [:client]
-             :db-name      "framebase"}
- :fb        {:sc/create-fn net.wikipunk.framebase/map->FrameBase
-             :sc/refs      [:framebase]}}
+{:vocab  {:sc/create-fn net.wikipunk.rdf/map->UniversalTranslator
+          :sc/refs      [:fb :db]
+          :boot         [net.wikipunk.framebase.boot]
+          :config       {:xtdb/index-store
+                         {:kv-store
+                          {:xtdb/module xtdb.rocksdb/->kv-store
+                           :db-dir      ".vocab/index-store"}}
+                         :xtdb/document-store
+                         {:kv-store
+                          {:xtdb/module xtdb.rocksdb/->kv-store
+                           :db-dir      ".vocab/document-store"}}
+                         :xtdb/tx-log
+                         {:kv-store
+                          {:xtdb/module xtdb.rocksdb/->kv-store
+                           :db-dir      ".vocab/tx-log"}}
+                         :xtdb.lucene/lucene-store
+                         {:db-dir ".vocab/lucene"}}}
+ :client {:sc/create-fn datomic.client.api/client
+          :server-type  :dev-local
+          :system       "dev"}
+ :db     {:sc/create-fn net.wikipunk.datomic/map->Connection
+          :sc/refs      [:client]
+          :db-name      "framebase"}
+ :fb     {:sc/create-fn net.wikipunk.framebase/map->FrameBase
+          :sc/refs      [:db]}}

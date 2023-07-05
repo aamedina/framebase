@@ -1,9 +1,9 @@
 {:deps
  {io.github.aamedina/rdf
-  {:sha     "4be87367520b88c61939e6788694366ea2a32988"
+  {:sha     "2171d55e8199c675da526f960dce0bae307a6af5"
    :git/url "https://github.com/aamedina/rdf.git"}
   io.github.aamedina/punk.db
-  {:sha     "42643fb1fc97fb43cab48758ac80400723185a88"
+  {:sha     "a237ee8769b34961e0e72118778cc269e2565ce9"
    :git/url "https://github.com/aamedina/punk.db.git"}
   com.xtdb/xtdb-rocksdb
   {:mvn/version "1.23.2"}}
@@ -26,7 +26,8 @@
     vlaaad/reveal
     {:mvn/version "1.3.277"}}
    :extra-paths ["dev"]
-   :jvm-opts    ["-Xmx110g"
+   :jvm-opts    ["-Xmx115g"
                  "-XX:-OmitStackTraceInFastThrow"
                  "-XX:+HeapDumpOnOutOfMemoryError"
-                 "-Dorg.slf4j.simpleLogger.defaultLogLevel=warn"]}}}
+                 "-Dorg.slf4j.simpleLogger.defaultLogLevel=warn"
+                 "-Djava.util.Arrays.useLegacyMergeSort=true"]}}}

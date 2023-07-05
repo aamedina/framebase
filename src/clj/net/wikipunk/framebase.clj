@@ -5,10 +5,11 @@
    [net.wikipunk.rdf :as rdf]
    [net.wikipunk.punk.db :as db]
    [net.wikipunk.rdf.fbmeta]
+   [net.wikipunk.rdf.event]
    #_[net.wikipunk.rdf.fbframe] 
    #_[net.wikipunk.rdf.fbfe]))
 
-(defrecord FrameBase [framebase]
+(defrecord FrameBase []
   com/Lifecycle
   (start [this]
     this)
